@@ -12,10 +12,14 @@ import os
 os.makedirs("data/", exist_ok=True)
 
 df = pd.read_csv('data.csv', encoding = "ISO-8859-1",header=None)
-df = df[:1000]
 df.columns = ['target', 'tweet_id', 'datetime', 'query', 'username', 'tweet']
 df.replace({'target':{4:1}}, inplace = True)
 df.head(10)
+# label_0 = df[df["target"] == 0]
+# label_1 = df[df["target"] == 1]
+# print(label_0, label_1)
+# df = pd.concat([label_0[:10000], label_1[:10000]])
+print(df)
 
 port_stem = PorterStemmer()
 
