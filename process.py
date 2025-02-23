@@ -3,7 +3,9 @@ import pandas as pd
 df = pd.read_csv('data.csv', encoding = "ISO-8859-1",header=None)
 df = df[:1000]
 df.columns = ['target', 'tweet_id', 'datetime', 'query', 'username', 'tweet']
+# print(df.target.unique())
 df.replace({'target':{4:1}}, inplace = True)
+# print(df.target.unique())
 df.head(10)
 print(df)
 
@@ -59,6 +61,9 @@ vectorizer = TfidfVectorizer()
 
 X_train = vectorizer.fit_transform(X_train)
 X_test = vectorizer.transform(X_test)
+
+# print(X_train)
+# print(X_test)
 
 import pickle
 import os 
